@@ -109,7 +109,7 @@ static class HudManagerStartPatch {
 
         farSightButton = new CustomButton(
             () => {
-                FarSight.buttonAction();
+                FarSight.activate(!FarSight.toggle);
             },
             () => {
                 return PlayerControl.LocalPlayer.Data.IsDead;

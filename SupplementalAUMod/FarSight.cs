@@ -3,7 +3,7 @@ using UnityEngine;
 namespace AUMod
 {
     public static class FarSight {
-        private static bool toggle;
+        public static bool toggle;
         private static Sprite buttonSprite;
 
         public static Sprite getButtonSprite()
@@ -13,6 +13,7 @@ namespace AUMod
             buttonSprite = FastDestroyableSingleton<HudManager>.Instance.UseButton.fastUseSettings[ImageNames.OptionsButton].Image;
             return buttonSprite;
         }
+
         public static void activate(bool isActive)
         {
             if (isActive == toggle)
@@ -30,8 +31,7 @@ namespace AUMod
             }
             toggle = isActive;
         }
-        public static void buttonAction() =>
-            activate(!toggle);
+
         public static void Update()
         {
             bool forceDeactivate = !FastDestroyableSingleton<HudManager>.Instance.UseButton.isActiveAndEnabled ||
